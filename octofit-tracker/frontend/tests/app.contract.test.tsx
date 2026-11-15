@@ -37,6 +37,7 @@ describe('OctoFit presentation contract', () => {
     renderRoute('/activities');
     expect(screen.getByRole('heading', { name: /activities/i })).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText(/run/i)).toBeInTheDocument());
+    expect(fetch).toHaveBeenCalledWith('/api/activities');
   });
 
   it('renders teams, leaderboard, and workout suggestions with accessible content', async () => {
